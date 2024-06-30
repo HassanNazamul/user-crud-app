@@ -51,7 +51,7 @@ function EditUser() {
 
     const addUserDetail = async () => {
         await editUser(user, id);
-        navi("/all");   
+        navi("/user-crud-app/all");   
     }
     return (
 

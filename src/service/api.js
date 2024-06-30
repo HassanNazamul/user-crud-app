@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:3002/users'
+const API_URL = 'https://hassannazamul.github.io/user-crud-app/'
 
 //api to add user
 export const addUser = async (data) => {

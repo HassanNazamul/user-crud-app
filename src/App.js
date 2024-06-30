@@ -13,9 +13,9 @@ function App() {
 
       <Routes>
         <Route path="/user-crud-app" element={<Home />} />
-        <Route path="/all" element={<AllUser />} />
-        <Route path="/add" element={<AddUser />} />
-        <Route path="/edit/:id" element={<EditUser />} />
+        <Route path="/user-crud-app/all" element={<AllUser />} />
+        <Route path="/user-crud-app/add" element={<AddUser />} />
+        <Route path="/user-crud-app/edit/:id" element={<EditUser />} />
       </Routes>
     </BrowserRouter>
   );

@@ -37,7 +37,7 @@ function AddUser() {
 
     const addUserDetail = async () => {
         await addUser(user);
-        navi("/all");   
+        navi("/user-crud-app/all");   
     }
 
     return (

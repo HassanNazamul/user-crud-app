@@ -21,9 +21,9 @@ const Navbar = () => {
         <Header position='static' >
             <Toolbar>
 
-                <Tab to={"/"} >Home</Tab>
-                <Tab to={"/all"} >All User</Tab>
-                <Tab to={"/add"} >Add User</Tab>
+                <Tab to={"/user-crud-app/"} >Home</Tab>
+                <Tab to={"/user-crud-app/all"} >All User</Tab>
+                <Tab to={"/user-crud-app/add"} >Add User</Tab>
 
             </Toolbar>
         </Header>

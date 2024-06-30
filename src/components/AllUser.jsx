@@ -86,7 +86,7 @@ function AllUser() {
                                     variant='contained'
                                     sx={{ marginRight: "6px" }}
                                     component={Link}
-                                    to={`/edit/${item.id}`}
+                                    to={`/user-crud-app/edit/${item.id}`}
                                 >
                                     edit</Button>
                                 <Button
