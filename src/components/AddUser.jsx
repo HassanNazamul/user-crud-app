@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { FormControl, FormGroup, Input, InputLabel, Typography, Button, styled } from '@mui/material'
-
 import { addUser } from '../service/api'
+import { useNavigate } from 'react-router-dom'
 
 
 //styling the group
@@ -25,6 +25,8 @@ const userObject = {
 
 function AddUser() {
 
+    const navi = useNavigate();
+
     const [user, setUser] = useState(userObject);
 
     const onNameChange = (e) => {
@@ -35,6 +37,7 @@ function AddUser() {
 
     const addUserDetail = async () => {
         await addUser(user);
+        navi("/all");   
     }
 
     return (
