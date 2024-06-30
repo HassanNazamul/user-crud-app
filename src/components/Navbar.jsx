@@ -1,14 +1,17 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { styled } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 
 const Header = styled(AppBar)`
 
     background: #111111;
 `
-const Tab = styled(Typography)`
+const Tab = styled(NavLink)`
     margin-right:10px;
+    color:white;
+    text-decoration:none;
 `
 
 
@@ -17,9 +20,11 @@ const Navbar = () => {
     return (
         <Header position='static' >
             <Toolbar>
-                <Tab>Home</Tab>
-                <Tab>All User</Tab>
-                <Tab>Add User</Tab>
+
+                <Tab to={"/"} >Home</Tab>
+                <Tab to={"/all"} >All User</Tab>
+                <Tab to={"/add"} >Add User</Tab>
+
             </Toolbar>
         </Header>
     );
