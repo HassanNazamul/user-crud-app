@@ -1,6 +1,8 @@
-import { Table, TableBody, TableCell, TableHead, TableRow, styled } from '@mui/material'
-import { getUser } from '../service/api'
+import { Button, Table, TableBody, TableCell, TableHead, TableRow, styled } from '@mui/material'
+import { getUser, deleteUser } from '../service/api'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 
 const StyleTable = styled(Table)`
     width: 80%;
@@ -36,6 +38,17 @@ function AllUser() {
 
     }, []);
 
+    const handleDelete = async (id) => {
+        let respone = await deleteUser(id);
+
+        if (respone.statusText === "OK") {
+
+            setUser(prev => prev.filter((item) =>
+                item.id !== id
+            ))
+        }
+    }
+
     const getUserDetails = async () => {
         let response = await getUser();
         console.log(response);
@@ -54,6 +67,7 @@ function AllUser() {
                     <TableCell>Username</TableCell>
                     <TableCell>Email</TableCell>
                     <TableCell>Phone</TableCell>
+                    <TableCell></TableCell>
                 </StyledThead>
             </TableHead>
 
@@ -61,12 +75,26 @@ function AllUser() {
 
                 {
                     user.map(item => (
-                        <StyledTbody>
+                        <StyledTbody key={item.id} >
                             <TableCell> {item.id} </TableCell>
                             <TableCell> {item.name} </TableCell>
                             <TableCell> {item.username} </TableCell>
                             <TableCell> {item.email} </TableCell>
                             <TableCell> {item.phone} </TableCell>
+                            <TableCell>
+                                <Button
+                                    variant='contained'
+                                    sx={{ marginRight: "6px" }}
+                                    component={Link}
+                                    to={`/edit/${item.id}`}
+                                >
+                                    edit</Button>
+                                <Button
+                                    variant='contained'
+                                    color='secondary'
+                                    onClick={() => handleDelete(item.id)}
+                                >delete</Button>
+                            </TableCell>
                         </StyledTbody>
                     ))
                 }
